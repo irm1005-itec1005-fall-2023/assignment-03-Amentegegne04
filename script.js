@@ -51,7 +51,11 @@
 // the function does not need to return anything
 let todoItems = [];// empty arraytodo items
 function addToDoItem(text) {
-  // Implement the logic to add a task here
+if (typeof text !== "string"){
+  console.log("invalid input, please enter a string");
+  return false
+}
+
 let todoItem={
   id: todoItems.length,
   text:text,
@@ -86,6 +90,10 @@ console.log(todoItems);
 // that matches the id passed to the function, set its completed property to true
 // the function does not need to return anything
 function markToDoItemAsCompleted(todoId) {
+  if (typeof todoId !== 'number'){
+    console.log("invalid input, please enter a number");
+    return false;
+  }
   for(let i = 0; i < todoItems.length; i++){
     if(todoItems[i].id === todoId){
     todoItems[i].completed = true;
@@ -104,6 +112,11 @@ console.log(todoItems);
 // the function does not need to return anything, though you can return
 // true or false depending on whether the item was successfully deleted
 function deleteToDoItem(todoId) {
+  if (typeof todoId !== 'number'){
+    console.log("invalid input, please enter a number");
+    return false;
+  }
+  let found = false;
   // Implement the logic to remove a task here
   for(let i = 0; i < todoItems.length; i++){
     if(todoItems[i].id === todoId){
